@@ -1,0 +1,25 @@
+<%= form_for(@email) do |f| %>
+  <% if @email.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@email.errors.count, "error") %> prohibited this email from being saved:</h2>
+
+      <ul>
+      <% @email.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <div class="field">
+      <%= f.text_field :email, :placeholder => "Enter your email for updates", :class => "emailInput" %>
+    </div>
+    <label class="checkbox">
+      <%= f.check_box :selling %> I'm interested in renting out my space
+    </label>
+    <div class="actions">
+      <%= f.submit "Get Updates", :class => "btn btn-success" %>
+    </div>
+  </fieldset>
+<% end %>
